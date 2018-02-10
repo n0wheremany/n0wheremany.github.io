@@ -45,7 +45,7 @@ if (/*window.location.protocol === 'https:' &&*/
             /*if(this.d)*/console.log(a,b,c)
         },
         onMessage:function(p){
-            console.log('Message received. ',p);
+            firecli.onError('Message received. ',p);
             navigator.serviceWorker.register('/firebase-messaging-sw.js');
             Notification.requestPermission(function(permission) {
                 if (permission === 'granted') {
