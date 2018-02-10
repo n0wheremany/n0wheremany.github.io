@@ -45,18 +45,15 @@ if (/*window.location.protocol === 'https:' &&*/
             /*if(this.d)*/console.log(a,b,c)
         },
         onMessage:function(p){
-            console.log('Message received. ', payload);
-
-            // register fake ServiceWorker for show notification on mobile devices
-            navigator.serviceWorker.register('/serviceworker/messaging-sw.js');
+            console.log('Message received. ',p);
+            navigator.serviceWorker.register('/firebase-messaging-sw.js');
             Notification.requestPermission(function(permission) {
                 if (permission === 'granted') {
                     navigator.serviceWorker.ready.then(function(registration) {
-                        payload.notification.data = payload.notification;
-                        registration.showNotification(payload.notification.title, payload.notification);
-                    }).catch(function(error) {
-                        // registration failed :(
-                        showError('ServiceWorker registration failed.', error);
+                        p.notification.data = p.notification;
+                        registration.showNotification(p.notification.title, p.notification);
+                    }).catch(function(e) {
+                        firecli.onError('ServiceWorker registration failed.', e)
                     });
                 }
             });
