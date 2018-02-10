@@ -42,7 +42,7 @@ if (/*window.location.protocol === 'https:' &&*/
                 })
         },
         onError:function(a,b,c){
-            /*if(this.d)*/console.log(a,b,c)
+            if(this.d)console.log(a,b,c)
         },
         onMessage:function(p){
             firecli.onError('Message received. ',p);
