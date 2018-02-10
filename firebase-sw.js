@@ -14,7 +14,7 @@ if (/*window.location.protocol === 'https:' &&*/
         d:!1,
         saveToken:function(t){
             this.onError('saveToken',t);
-            $.post(dle_root+'engine/ajax/webpush.php',{act:'save','token':t});
+            //$.post(dle_root+'engine/ajax/webpush.php',{act:'save','token':t});
             if(!t){
                 firecli.onError('No Instance ID token available. Request permission to generate one.',t)
             } else {
